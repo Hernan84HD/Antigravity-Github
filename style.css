@@ -1,21 +1,21 @@
-/* --- Aura Chords - Sistema de Diseño y Estilos --- */
+/* --- Aura Chords - Sistema de Diseño y Estilos (Paleta Verde, Azul y Blanco) --- */
 
 :root {
-    --bg-dark: #070a13;
-    --bg-gradient: radial-gradient(circle at 50% 50%, #101424 0%, #060913 100%);
-    --card-bg: rgba(13, 20, 38, 0.55);
-    --card-border: rgba(255, 255, 255, 0.07);
-    --card-border-glow: rgba(6, 182, 212, 0.2);
+    --bg-dark: #050f14;
+    --bg-gradient: radial-gradient(circle at 50% 50%, #0d2836 0%, #02070a 100%);
+    --card-bg: rgba(255, 255, 255, 0.04);
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-border-glow: rgba(16, 185, 129, 0.25);
     
-    --text-primary: #f8fafc;
-    --text-muted: #94a3b8;
+    --text-primary: #ffffff;
+    --text-muted: #cbd5e1;
     
-    /* Colores de Acento */
-    --accent-cyan: #06b6d4;
-    --accent-cyan-glow: rgba(6, 182, 212, 0.45);
-    --accent-pink: #ec4899;
-    --accent-pink-glow: rgba(236, 72, 153, 0.45);
-    --accent-purple: #8b5cf6;
+    /* Nueva Paleta de Colores de Acento */
+    --accent-green: #10b981; /* Verde Esmeralda */
+    --accent-green-glow: rgba(16, 185, 129, 0.45);
+    --accent-blue: #0ea5e9; /* Azul Cielo */
+    --accent-blue-glow: rgba(14, 165, 233, 0.45);
+    --accent-white: #ffffff;
     
     /* Fuentes */
     --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -48,7 +48,7 @@ body {
     position: absolute;
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.07) 0%, rgba(0, 0, 0, 0) 70%);
     top: -100px;
     left: -100px;
     z-index: 0;
@@ -57,7 +57,7 @@ body {
 }
 
 .glass-bg-glow.glow-secondary {
-    background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+    background: radial-gradient(circle, rgba(14, 165, 233, 0.07) 0%, rgba(0, 0, 0, 0) 70%);
     bottom: -100px;
     right: -100px;
     top: auto;
@@ -97,7 +97,7 @@ body {
 
 .music-icon {
     font-size: 2.2rem;
-    filter: drop-shadow(0 0 10px var(--accent-cyan));
+    filter: drop-shadow(0 0 10px var(--accent-green));
     animation: floatIcon 3s ease-in-out infinite;
 }
 
@@ -111,10 +111,10 @@ body {
     font-size: 2.5rem;
     font-weight: 800;
     letter-spacing: 2px;
-    background: linear-gradient(135deg, #ffffff 30%, var(--accent-cyan) 100%);
+    background: linear-gradient(135deg, var(--accent-white) 30%, var(--accent-green) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 4px 20px rgba(6, 182, 212, 0.15);
+    text-shadow: 0 4px 20px rgba(16, 185, 129, 0.15);
 }
 
 .subtitle {
@@ -151,7 +151,7 @@ body {
 
 .card:hover {
     border-color: var(--card-border-glow);
-    box-shadow: 0 12px 35px rgba(6, 182, 212, 0.08), 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    box-shadow: 0 12px 35px rgba(16, 185, 129, 0.08), 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
 .card-header {
@@ -164,7 +164,7 @@ body {
 }
 
 .step-num {
-    background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-purple) 100%);
+    background: linear-gradient(135deg, var(--accent-green) 0%, var(--accent-blue) 100%);
     color: white;
     width: 26px;
     height: 26px;
@@ -174,7 +174,7 @@ body {
     justify-content: center;
     font-weight: 700;
     font-size: 0.85rem;
-    box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.4);
 }
 
 .card-header h2 {
@@ -230,9 +230,9 @@ body {
 }
 
 .root-btn.active {
-    background: linear-gradient(135deg, rgba(6, 182, 212, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
-    border-color: var(--accent-cyan);
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.35);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.25) 0%, rgba(14, 165, 233, 0.25) 100%);
+    border-color: var(--accent-green);
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.35);
     color: #ffffff;
     transform: scale(1.03);
 }
@@ -281,9 +281,9 @@ body {
 }
 
 .type-btn.active {
-    background: linear-gradient(135deg, rgba(236, 72, 153, 0.25) 0%, rgba(139, 92, 246, 0.25) 100%);
-    border-color: var(--accent-pink);
-    box-shadow: 0 0 15px rgba(236, 72, 153, 0.35);
+    background: linear-gradient(135deg, rgba(14, 165, 233, 0.25) 0%, rgba(16, 185, 129, 0.25) 100%);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 15px rgba(14, 165, 233, 0.35);
     color: #ffffff;
     transform: scale(1.03);
 }
@@ -301,7 +301,7 @@ body {
 
 /* Panel de Información del Acorde */
 .info-card {
-    border-left: 4px solid var(--accent-cyan);
+    border-left: 4px solid var(--accent-green);
 }
 
 .info-layout {
@@ -327,15 +327,15 @@ body {
 }
 
 .chord-badge {
-    background: rgba(6, 182, 212, 0.15);
-    border: 1px solid var(--accent-cyan);
-    color: var(--accent-cyan);
+    background: rgba(16, 185, 129, 0.15);
+    border: 1px solid var(--accent-green);
+    color: var(--accent-green);
     padding: 0.25rem 0.75rem;
     border-radius: 99px;
     font-size: 0.9rem;
     font-weight: 700;
     font-family: 'JetBrains Mono', monospace;
-    box-shadow: 0 0 10px rgba(6, 182, 212, 0.1);
+    box-shadow: 0 0 10px rgba(16, 185, 129, 0.1);
 }
 
 .notes-display {
@@ -363,10 +363,10 @@ body {
 
 /* Nota activa que resalta como tónica */
 .note-bubble:first-child {
-    background: linear-gradient(135deg, var(--accent-cyan) 0%, #3b82f6 100%);
-    border-color: #22d3ee;
-    color: #ffffff;
-    box-shadow: 0 0 15px rgba(6, 182, 212, 0.4);
+    background: linear-gradient(135deg, var(--accent-white) 0%, var(--accent-green) 100%);
+    border-color: #34d399;
+    color: #050f14;
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
 }
 
 @keyframes popBubble {
@@ -402,7 +402,7 @@ body {
 
 #chordFormula {
     font-family: 'JetBrains Mono', monospace;
-    color: var(--accent-pink);
+    color: var(--accent-blue);
 }
 
 /* Tarjeta del Piano */
@@ -433,14 +433,14 @@ body {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--accent-cyan) 0%, #0284c7 100%);
+    background: linear-gradient(135deg, var(--accent-green) 0%, #047857 100%);
     color: white;
-    box-shadow: 0 4px 15px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.45);
+    box-shadow: 0 6px 20px rgba(16, 185, 129, 0.45);
     filter: brightness(1.1);
 }
 
@@ -467,7 +467,7 @@ body {
 /* Diseño del Teclado de Piano */
 .piano-wrapper {
     width: 100%;
-    background: #090d16;
+    background: #060e14;
     border-radius: 16px;
     padding: 0.5rem;
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -479,7 +479,7 @@ body {
     width: 100%;
     position: relative;
     display: flex;
-    background: #090d16;
+    background: #060e14;
     border-radius: 10px;
     overflow: hidden;
 }
@@ -525,16 +525,16 @@ body {
     transform: translateY(2px);
 }
 
-/* Iluminación de notas del acorde en teclas blancas */
+/* Iluminación de notas del acorde en teclas blancas - Gradiente Verde/Azul con Brillo de Neón */
 .key.white.active {
-    background: linear-gradient(to bottom, #a7f3d0 0%, var(--accent-cyan) 85%, #0891b2 100%) !important;
-    box-shadow: inset 0 -4px 12px rgba(0, 0, 0, 0.15), 0 0 20px var(--accent-cyan-glow);
+    background: linear-gradient(to bottom, #ffffff 0%, var(--accent-blue) 45%, var(--accent-green) 100%) !important;
+    box-shadow: inset 0 -4px 12px rgba(0, 0, 0, 0.15), 0 0 20px var(--accent-green-glow);
     border-right-color: rgba(0, 0, 0, 0.05);
 }
 
 .key.white.active .key-label {
     color: #ffffff;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 /* Teclas Negras */
@@ -575,15 +575,15 @@ body {
     transform: translateX(-50%) translateY(2px);
 }
 
-/* Iluminación de notas del acorde en teclas negras */
+/* Iluminación de notas del acorde en teclas negras - Gradiente Azul con Brillo de Neón */
 .key.black.active {
-    background: linear-gradient(to bottom, #fbcfe8 0%, var(--accent-pink) 85%, #be185d 100%) !important;
-    box-shadow: inset 0 -3px 8px rgba(0, 0, 0, 0.25), 0 0 20px var(--accent-pink-glow);
+    background: linear-gradient(to bottom, #bae6fd 0%, var(--accent-blue) 85%, #0369a1 100%) !important;
+    box-shadow: inset 0 -3px 8px rgba(0, 0, 0, 0.25), 0 0 20px var(--accent-blue-glow);
 }
 
 .key.black.active .key-label {
     color: #ffffff;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
 }
 
 .piano-instructions {
