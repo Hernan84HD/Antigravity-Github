@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aura Chords - Visualizador Interactivo de Acordes</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explora y escucha la formación de acordes musicales interactivos con Aura Chords. Selecciona tónicas, tipos de acordes y visualízalos en un piano con sonido polifónico de alta fidelidad.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glass-bg-glow"></div>
+    <div class="glass-bg-glow glow-secondary"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <span class="music-icon">🎵</span>
+                <h1>AURA CHORDS</h1>
+            </div>
+            <p class="subtitle">Explorador & Sintetizador de Armonía Musical</p>
+        </header>
+
+        <!-- Main Dashboard -->
+        <main class="app-dashboard">
+            <!-- Left Side: Controls & Info -->
+            <section class="controls-section">
+                <!-- Step 1: Root Note Selector -->
+                <div class="card selector-card">
+                    <div class="card-header">
+                        <span class="step-num">1</span>
+                        <h2>Nota Fundamental (Tónica)</h2>
+                    </div>
+                    <div class="root-grid" id="rootGrid">
+                        <!-- Generado dinámicamente o estático -->
+                        <button class="root-btn active" data-note="C">C <span class="note-es">Do</span></button>
+                        <button class="root-btn" data-note="C#">C# <span class="note-es">Do#</span></button>
+                        <button class="root-btn" data-note="D">D <span class="note-es">Re</span></button>
+                        <button class="root-btn" data-note="D#">D# <span class="note-es">Re#</span></button>
+                        <button class="root-btn" data-note="E">E <span class="note-es">Mi</span></button>
+                        <button class="root-btn" data-note="F">F <span class="note-es">Fa</span></button>
+                        <button class="root-btn" data-note="F#">F# <span class="note-es">Fa#</span></button>
+                        <button class="root-btn" data-note="G">G <span class="note-es">Sol</span></button>
+                        <button class="root-btn" data-note="G#">G# <span class="note-es">Sol#</span></button>
+                        <button class="root-btn" data-note="A">A <span class="note-es">La</span></button>
+                        <button class="root-btn" data-note="A#">A# <span class="note-es">La#</span></button>
+                        <button class="root-btn" data-note="B">B <span class="note-es">Si</span></button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Chord Type Selector -->
+                <div class="card selector-card">
+                    <div class="card-header">
+                        <span class="step-num">2</span>
+                        <h2>Tipo de Acorde (Calidad)</h2>
+                    </div>
+                    <div class="chord-type-grid" id="chordTypeGrid">
+                        <button class="type-btn active" data-type="major">
+                            <span class="type-name">Mayor</span>
+                            <span class="type-symbol">maj</span>
+                        </button>
+                        <button class="type-btn" data-type="minor">
+                            <span class="type-name">Menor</span>
+                            <span class="type-symbol">min</span>
+                        </button>
+                        <button class="type-btn" data-type="dom7">
+                            <span class="type-name">Séptima</span>
+                            <span class="type-symbol">7</span>
+                        </button>
+                        <button class="type-btn" data-type="maj7">
+                            <span class="type-name">Sept. Mayor</span>
+                            <span class="type-symbol">maj7</span>
+                        </button>
+                        <button class="type-btn" data-type="min7">
+                            <span class="type-name">Sept. Menor</span>
+                            <span class="type-symbol">m7</span>
+                        </button>
+                        <button class="type-btn" data-type="dim">
+                            <span class="type-name">Disminuido</span>
+                            <span class="type-symbol">dim</span>
+                        </button>
+                        <button class="type-btn" data-type="aug">
+                            <span class="type-name">Aumentado</span>
+                            <span class="type-symbol">aug</span>
+                        </button>
+                        <button class="type-btn" data-type="sus4">
+                            <span class="type-name">Sus 4</span>
+                            <span class="type-symbol">sus4</span>
+                        </button>
+                        <button class="type-btn" data-type="sus2">
+                            <span class="type-name">Sus 2</span>
+                            <span class="type-symbol">sus2</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Side: Details & Piano -->
+            <section class="display-section">
+                <!-- Chord Details Panel -->
+                <div class="card info-card" id="infoCard">
+                    <div class="info-layout">
+                        <div class="chord-title-wrap">
+                            <h3 id="chordFullName">Do Mayor</h3>
+                            <div class="chord-badge" id="chordSymbolBadge">Cmaj</div>
+                        </div>
+                        <div class="notes-display" id="notesDisplay">
+                            <!-- Notes will be injected here -->
+                            <div class="note-bubble">C</div>
+                            <div class="note-bubble">E</div>
+                            <div class="note-bubble">G</div>
+                        </div>
+                        <div class="formula-display">
+                            <div class="formula-item">
+                                <span class="formula-label">Fórmula:</span>
+                                <span class="formula-val" id="chordFormula">1 - 3 - 5</span>
+                            </div>
+                            <div class="formula-item">
+                                <span class="formula-label">Intervalos:</span>
+                                <span class="formula-val" id="chordIntervals">Fundamental, Tercera Mayor, Quinta Justa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Interactive Piano -->
+                <div class="card piano-card">
+                    <div class="piano-actions">
+                        <button class="btn btn-primary" id="btnPlayChord">
+                            <span class="icon">▶</span> Escuchar Acorde
+                        </button>
+                        <button class="btn btn-secondary" id="btnArpeggiate">
+                            <span class="icon">🎹</span> Arpegio (Nota a Nota)
+                        </button>
+                    </div>
+
+                    <div class="piano-wrapper">
+                        <!-- Key indicators / Note names -->
+                        <div class="piano-keyboard" id="pianoKeyboard">
+                            <!-- White Keys (14 total) -->
+                            <div class="key white" data-note="C4" style="--key-index: 0;">
+                                <span class="key-label">C4</span>
+                            </div>
+                            <div class="key white" data-note="D4" style="--key-index: 1;">
+                                <span class="key-label">D4</span>
+                            </div>
+                            <div class="key white" data-note="E4" style="--key-index: 2;">
+                                <span class="key-label">E4</span>
+                            </div>
+                            <div class="key white" data-note="F4" style="--key-index: 3;">
+                                <span class="key-label">F4</span>
+                            </div>
+                            <div class="key white" data-note="G4" style="--key-index: 4;">
+                                <span class="key-label">G4</span>
+                            </div>
+                            <div class="key white" data-note="A4" style="--key-index: 5;">
+                                <span class="key-label">A4</span>
+                            </div>
+                            <div class="key white" data-note="B4" style="--key-index: 6;">
+                                <span class="key-label">B4</span>
+                            </div>
+                            <div class="key white" data-note="C5" style="--key-index: 7;">
+                                <span class="key-label">C5</span>
+                            </div>
+                            <div class="key white" data-note="D5" style="--key-index: 8;">
+                                <span class="key-label">D5</span>
+                            </div>
+                            <div class="key white" data-note="E5" style="--key-index: 9;">
+                                <span class="key-label">E5</span>
+                            </div>
+                            <div class="key white" data-note="F5" style="--key-index: 10;">
+                                <span class="key-label">F5</span>
+                            </div>
+                            <div class="key white" data-note="G5" style="--key-index: 11;">
+                                <span class="key-label">G5</span>
+                            </div>
+                            <div class="key white" data-note="A5" style="--key-index: 12;">
+                                <span class="key-label">A5</span>
+                            </div>
+                            <div class="key white" data-note="B5" style="--key-index: 13;">
+                                <span class="key-label">B5</span>
+                            </div>
+
+                            <!-- Black Keys (10 total, absolute positioned using percentage boundary offsets) -->
+                            <div class="key black" data-note="C#4" style="left: calc((100% / 14) * 1);">
+                                <span class="key-label">C#4</span>
+                            </div>
+                            <div class="key black" data-note="D#4" style="left: calc((100% / 14) * 2);">
+                                <span class="key-label">D#4</span>
+                            </div>
+                            <div class="key black" data-note="F#4" style="left: calc((100% / 14) * 4);">
+                                <span class="key-label">F#4</span>
+                            </div>
+                            <div class="key black" data-note="G#4" style="left: calc((100% / 14) * 5);">
+                                <span class="key-label">G#4</span>
+                            </div>
+                            <div class="key black" data-note="A#4" style="left: calc((100% / 14) * 6);">
+                                <span class="key-label">A#4</span>
+                            </div>
+                            <div class="key black" data-note="C#5" style="left: calc((100% / 14) * 8);">
+                                <span class="key-label">C#5</span>
+                            </div>
+                            <div class="key black" data-note="D#5" style="left: calc((100% / 14) * 9);">
+                                <span class="key-label">D#5</span>
+                            </div>
+                            <div class="key black" data-note="F#5" style="left: calc((100% / 14) * 11);">
+                                <span class="key-label">F#5</span>
+                            </div>
+                            <div class="key black" data-note="G#5" style="left: calc((100% / 14) * 12);">
+                                <span class="key-label">G#5</span>
+                            </div>
+                            <div class="key black" data-note="A#5" style="left: calc((100% / 14) * 13);">
+                                <span class="key-label">A#5</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="piano-instructions">
+                        <p>💡 Haz clic directamente en las teclas del piano para tocarlas individualmente.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer-info">
+            <p>Aura Chords &copy; 2026. Diseñado con fines educativos musicales.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
